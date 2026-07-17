@@ -1,0 +1,43 @@
+@startuml
+title Diagrama de Componentes - Simulador de Inversiones en Criptomonedas
+
+package "Power Apps - Frontend" {
+  [Login/Registro] as login
+  [Dashboard (ScrInicio)] as dashboard
+  [Mercado (ScrMercado)] as mercado
+  [Detalle/Trading (ScrDetalle)] as detalle
+  [Portafolio (ScrPortafolio)] as portafolio
+  [Historial (ScrHistorial)] as historial
+  [Perfil/Config] as perfil
+  [Educación/Ayuda] as educacion
+  [compTabBar] as tabbar
+}
+
+package "Backend - Datos" {
+  [Dataverse] as dataverse
+  [API de Precios Cripto] as api
+}
+
+package "Servicios" {
+  [Power Fx - Lógica de negocio] as powerfx
+}
+
+login --> dataverse : RF01/RF15
+dashboard --> dataverse : RF02/RF05/RF19
+mercado --> dataverse : RF10
+mercado --> api : RF02
+detalle --> dataverse : RF03/RF04/RF07/RF08
+detalle --> api : RF13
+portafolio --> dataverse : RF05/RF09
+historial --> dataverse : RF06
+perfil --> dataverse : RF11/RF12
+
+dashboard --> tabbar
+mercado --> tabbar
+portafolio --> tabbar
+historial --> tabbar
+
+powerfx ..> dataverse
+powerfx ..> api
+
+@enduml
