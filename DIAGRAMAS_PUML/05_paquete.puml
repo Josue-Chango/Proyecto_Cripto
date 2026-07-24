@@ -8,18 +8,17 @@ package "Presentacion" {
   [Detalle/Trading]
   [Portafolio]
   [Historial]
-  [Perfil/Config]
   [Conversion Cripto]
 }
 
 package "Logica de Negocio" {
-  [Power Fx]
+  [Powerapp]
   [Validaciones]
   [Calculos]
 }
 
 package "Datos" {
-  [Dataverse]
+  [sharepoints]
   [API Precios]
 }
 

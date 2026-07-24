@@ -12,7 +12,6 @@ class Usuario {
   +registrarse()
   +iniciarSesion()
   +cerrarSesion()
-  +editarPerfil()
 }
 
 class Moneda {

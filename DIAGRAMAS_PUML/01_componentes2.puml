@@ -8,13 +8,11 @@ package "Power Apps - Frontend" {
   [Detalle/Trading (ScrDetalle)] as detalle
   [Portafolio (ScrPortafolio)] as portafolio
   [Historial (ScrHistorial)] as historial
-  [Perfil/Config] as perfil
-  [Educación/Ayuda] as educacion
   [compTabBar] as tabbar
 }
 
 package "Backend - Datos" {
-  [Dataverse] as dataverse
+  [powerapps_Tables] as powerapps_Tables
   [API de Precios Cripto] as api
 }
 
@@ -24,7 +22,7 @@ package "Servicios" {
 
 package "Artefactos" {
   artifact "CryptoSimulator.msapp" as appfile
-  artifact "Dataverse_Tables.cds" as dbfile
+  artifact "powerapps_Tables.cds" as dbfile
   artifact "API_Connector.json" as apifile
 }
 
@@ -34,7 +32,6 @@ interface "IBuscar" as ibuscar
 interface "IOperacion" as ioperacion
 interface "IDistribucion" as idist
 interface "IHistorial" as ihist
-interface "IPerfil" as iperfil
 interface "IGuardar" as iguardar
 interface "IConsultar" as iconsul
 interface "IPrecios" as iprecios
@@ -58,9 +55,6 @@ idist --- iconsul
 historial --- ihist
 ihist --- iconsul
 
-perfil --- iperfil
-iperfil --- iguardar
-
 powerfx --- iguardar
 powerfx --- iconsul
 
@@ -70,7 +64,7 @@ tabbar .. portafolio
 tabbar .. historial
 
 appfile .. powerfx
-dbfile .. dataverse
+dbfile .. powerapps_Tables
 apifile .. api
 
 @enduml

@@ -15,7 +15,7 @@ node "Dispositivo Móvil" as movil {
 
 node "Microsoft Cloud" as cloud {
   node "Power Platform" as pp {
-    [Dataverse] as dv
+    [Tables] as dv
   }
   node "API Externa" as ext {
     [Servicio de Precios Cripto] as api
